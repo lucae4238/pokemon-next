@@ -69,6 +69,8 @@ const PokemonDetails: React.FC<PokemonDetailsProps> = ({ pokemon }) => {
             <Text size={30}>Sprites: </Text>
             <Container direction='row' display='flex' gap={0}>
               <Image
+              loading="lazy"
+
                 src={pokemon.sprites.front_default}
                 alt={pokemon.name}
                 width={100}
@@ -76,6 +78,7 @@ const PokemonDetails: React.FC<PokemonDetailsProps> = ({ pokemon }) => {
               />
               <Image
                 src={pokemon.sprites.back_default}
+              loading="lazy"
                 alt={pokemon.name}
                 width={100}
                 height={100}
@@ -83,11 +86,13 @@ const PokemonDetails: React.FC<PokemonDetailsProps> = ({ pokemon }) => {
               <Image
                 src={pokemon.sprites.front_shiny}
                 alt={pokemon.name}
+              loading="lazy"
                 width={100}
                 height={100}
               />
               <Image
                 src={pokemon.sprites.back_shiny}
+              loading="lazy"
                 alt={pokemon.name}
                 width={100}
                 height={100}
