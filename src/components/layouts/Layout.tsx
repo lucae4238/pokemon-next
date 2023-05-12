@@ -6,8 +6,7 @@ interface LayoutProps extends PropsWithChildren {
   title?: string
 }
 
-// const origin =  window?.location?.origin || ""
-const isServerSide = (typeof window === undefined)
+
 
 export const Layout: FC<LayoutProps> = ({ children, title = "Pokemon App" }) => {
 
@@ -22,7 +21,7 @@ export const Layout: FC<LayoutProps> = ({ children, title = "Pokemon App" }) => 
 
         <meta property="og:title" content={`Informacion sobre ${title}`} />
         <meta property="og:description" content={`Esta es la pagina sobre ${title}`} />
-        <meta property="og:image" content={`${isServerSide ? "" : "http://localhost:3000"}/images/banner.png`} />
+        <meta property="og:image" content={`${typeof window === undefined ? "" : global?.window?.location.origin}/images/banner.png`} />
       </Head>
 
       <NavBar />
