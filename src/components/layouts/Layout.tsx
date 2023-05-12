@@ -22,6 +22,8 @@ export const Layout: FC<LayoutProps> = ({ children, title = "Pokemon App" }) => 
         <meta property="og:title" content={`Informacion sobre ${title}`} />
         <meta property="og:description" content={`Esta es la pagina sobre ${title}`} />
         <meta property="og:image" content={`${typeof window === undefined ? "" : global?.window?.location.origin}/images/banner.png`} />
+        <meta property="og:image:widht" content="250" />
+        <meta property='og;image:height' content="200" />
       </Head>
 
       <NavBar />
