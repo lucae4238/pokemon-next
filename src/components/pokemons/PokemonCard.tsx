@@ -19,7 +19,7 @@ export const PokemonCard: React.FC<Props> = ({ pokemon }) => {
     <Grid xs={6} sm={3} md={2} lg={1} >
       <Card isHoverable isPressable onClick={handleClick}>
         <Card.Body css={{ p: 1 }}>
-          <Card.Image loading="lazy" alt={pokemon.name} height={140} src={pokemon.img} />
+          <Card.Image  alt={pokemon.name} height={140} src={pokemon.img} />
         </Card.Body>
         <Card.Footer>
           <Row justify='space-between'>
