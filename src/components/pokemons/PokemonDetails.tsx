@@ -53,7 +53,7 @@ const PokemonDetails: React.FC<PokemonDetailsProps> = ({ pokemon }) => {
       </Grid>
       <Grid xs={12} sm={8}>
         <Card>
-          <Card.Header css={{ display: "flex", justifyContent: "space-between" }}>
+          <Card.Header  css={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between" }}>
             <Text h1 transform='capitalize'>
               {pokemon.name}
             </Text>
