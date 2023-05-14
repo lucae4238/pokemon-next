@@ -14,7 +14,6 @@ interface PokemonByNamePageProps {
 }
 
 const PokemonByNamePage: FC<PokemonByNamePageProps> = ({ pokemon }) => {
-  console.log('pokemon', pokemon)
   return (
     <Layout title={pokemon.name}>
       <PokemonDetails pokemon={pokemon} />
@@ -23,12 +22,31 @@ const PokemonByNamePage: FC<PokemonByNamePageProps> = ({ pokemon }) => {
 }
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
-  const { name } = ctx.params as any
+  const { name }: {name: string} = ctx.params as any
 
+  if(name !== name.toLowerCase()){
+    return {
+      redirect: {
+        destination: `/name/${name.toLowerCase()}`,
+        permanent: true
+      }
+    }
+  }
+
+  const pokemon = await getPokemonInfo(name)
+  
+  if(!pokemon){
+    return {
+      redirect: {
+        destination: "/",
+        permanent: true
+      }
+    }
+  }
   
   return {
     props: {
-      pokemon: await getPokemonInfo(name),
+      pokemon,
     }
   }
 }
@@ -46,7 +64,7 @@ export const getStaticPaths: GetStaticPaths = async (ctx) => {
 
   return {
     paths: pokemonPaths,
-    fallback: false
+    fallback: "blocking"
   }
 }
 
