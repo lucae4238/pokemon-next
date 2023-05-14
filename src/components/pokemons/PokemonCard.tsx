@@ -16,7 +16,7 @@ export const PokemonCard: React.FC<Props> = ({ pokemon }) => {
   }
 
   return (
-    <Grid xs={6} sm={3} md={2} lg={1} >
+    <Grid xs={6} sm={4} md={2} lg={1} >
       <Card isHoverable isPressable onClick={handleClick}>
         <Card.Body css={{ p: 1 }}>
           <Card.Image loading="lazy"  alt={pokemon.name} height={140} src={pokemon.img} />
